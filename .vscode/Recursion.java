@@ -86,21 +86,26 @@ public class Recursion {
             RevArray(i + 1, arr, n);
         }
     }
-    public static void palindrome(int i,String s,int n)
-    {
-        if(i>n/2)
-        {
+
+    public static void palindrome(int i, String s, int n) {
+        if (i > n / 2) {
             System.out.println("is not palindrome");
             return;
-        }
-        else
-        {
-            if(s.charAt(i)==s.charAt(n-i-1))
-            {
+        } else {
+            if (s.charAt(i) == s.charAt(n - i - 1)) {
                 System.out.println("is palindrome");
                 return;
             }
-            palindrome(i+1,s,n);
+            palindrome(i + 1, s, n);
+        }
+    }
+
+    public static int fibo(int n) {
+        // fib(5)=fib(4)+fib(3);
+        if (n <= 1) {
+            return n;
+        } else {
+            return fibo(n - 1) + fibo(n - 2);
         }
     }
 
@@ -132,8 +137,10 @@ public class Recursion {
 
         // ---------------------------------------------------------------------------------------------
 
-        String s="sos";
-        palindrome(0,s,s.length());
+        // String s="sos";
+        // palindrome(0,s,s.length());
+
+        System.out.println("Fibonoci num = " + fibo(6));
 
     }
 
