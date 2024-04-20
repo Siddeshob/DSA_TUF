@@ -3,6 +3,7 @@
 // 1.recursive tree
 // 2.base condition
 // IBH :- Induction , base Condition , Hinduction 
+// sorting array
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -39,6 +40,7 @@ public class RecursionAdthyaVarma {
         li.add(5);
         li.add(2);
 
+        
         funSort(li);
 
         // Printing the sorted list
