@@ -54,9 +54,12 @@ public class PermutationWithCaseChange {
 //         }
         
 //         // Generate permutations with the current character in lowercase
+
 //         generatePermutations(input, index + 1, current + input.get(index).toLowerCase(), result);
+
         
 //         // Generate permutations with the current character in uppercase
+
 //         generatePermutations(input, index + 1, current + input.get(index).toUpperCase(), result);
 //     }
 
