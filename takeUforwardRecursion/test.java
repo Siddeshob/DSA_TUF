@@ -4,62 +4,56 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class test {
-
-    public static void merge(List<Integer> li, int first, int last, int mid) {
-        List<Integer> temp = new ArrayList<>();
-
-        int left = mid + 1;
-
-        while (first <= mid && left <= last) {
-            if (li.get(first) <= li.get(mid)) {
-                int get = li.get(first);
-                temp.add(get);
-                first++;
-            } else {
-                int get = li.get(left);
-                temp.add(get);
-                left++;
+    public static int pivot(int[] arr,int low,int high)
+    {
+        int p=arr[low];
+        int i=low+1;
+        int j=high;
+        while (i<=j) 
+        {
+            while (i<=high && arr[i]<=p)
+            {
+                i++;
             }
+            while (j>=low && arr[j]>p)
+            {
+                j--;
+            }
+            if(i<j)
+            {
+                int temp=arr[i];
+                arr[i]=arr[j];
+                arr[j]=temp;
+            }
+        }
 
-        }
-        while (first <= mid) {
-            int get = li.get(first);
-            temp.add(get);
-            first++;
-        }
-        while (left <= last) {
-            int get = li.get(left);
-            temp.add(get);
-            left++;
-        }
-        System.out.println("---"+temp);
+        int temp=arr[low];
+        arr[low]=arr[j];
+        arr[j]=temp;
 
-        for (int i = first; i <= last; i++) { // Fix the loop to iterate from 'first' to 'last'
-            li.set(i, temp.get(i - first));
-        }
-        System.out.println(li);
+        return j;
+
     }
 
-    public static void solve(List<Integer> li, int first, int last) {
-        if (first >= last) {
-            return;
+    public static void sort(int[] arr,int low,int high)
+    {
+        if(low<high)
+        {
+            int p=pivot(arr,low,high);
+            sort(arr,low,p-1);
+            sort(arr,p+1,high);
         }
-        int mid = (first + last) / 2;
-
-        solve(li, first, mid);
-        solve(li, mid + 1, last);
-
-        merge(li, first, last, mid);
     }
-
+    
     public static void main(String[] args) {
-        List<Integer> li = new ArrayList<>();
-        li.add(7);
-        li.add(2);
-        li.add(99);
-        li.add(35);
+       int arr[]={5,990,323,8,52,8,22,0};
 
-        solve(li, 0, li.size() - 1);
+       sort(arr,0,arr.length-1);
+
+       for(int a:arr)
+       {
+        System.out.print(a+",");
+
+       }
     }
-
 }

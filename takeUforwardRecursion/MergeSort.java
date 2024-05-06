@@ -9,26 +9,33 @@ public class MergeSort {
 
         int left = low;
         int right = mid + 1;
+        System.out.println("-------------------------------- ");
+        System.out.println("temp - "+temp);
 
         while (left <= mid && right <= high) {
             if (list.get(left) <= list.get(right)) {
                 temp.add(list.get(left));
+                System.out.println("true - "+temp);
                 left++;
             } else {
                 temp.add(list.get(right));
+                System.out.println("false - "+temp);
                 right++;
             }
         }
         while (left <= mid) {
             temp.add(list.get(left));
+            System.out.println("left - "+temp);
             left++;
         }
         while (right <= high) {
             temp.add(list.get(right));
+            System.out.println("right - "+temp);
             right++;
         }
         for (int i = low; i <= high; i++) {
             list.set(i, temp.get(i - low));
+            System.out.println("temp - "+temp+" list - " +list);
         }
         System.out.println(list);
     }
