@@ -9,19 +9,17 @@ class TreeNode {
 
     public TreeNode(int data) {
         this.data = data;
+        this.left = null;
+        this.right = null;
     }
 
-    public TreeNode(int data, TreeNode left, TreeNode right) {
-        this.data = data;
-        this.left = left;
-        this.right = right;
-    }
+
 }
 
 class Solution {
     public List<List<Integer>> levelOrder(TreeNode root) {
         Queue<TreeNode> queue = new LinkedList<>();
-        List<List<Integer>> wrapList = new LinkedList<>();
+        List<List<Integer>> wrapList = new ArrayList<>();
         if (root == null) {
             return wrapList;
         }
@@ -30,7 +28,7 @@ class Solution {
             int size = queue.size();
 
             List<Integer> sublist = new LinkedList<>();
-            
+
             for (int i = 0; i < size; i++) {
                 if (queue.peek().left != null) {
                     queue.offer(queue.peek().left);
