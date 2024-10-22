@@ -18,20 +18,15 @@ public class MoveZerosToEnd {
                 arr[i] = arr[j];
                 arr[j] = temp;
                 j++;
-                
             }
         }
-
         return arr;
     }
-
-
     public static void main(String[] args) {
         int arr[] = { 1, 9, 0, 3, 7, 0, 0, 34, 0, 3, 0 };
-        int ans[]=move(arr);
-        for(int a:ans)
-        {
-            System.out.print(a+",");
+        int ans[] = move(arr);
+        for (int a : ans) {
+            System.out.print(a + ",");
         }
     }
 
